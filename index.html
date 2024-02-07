@@ -6,7 +6,9 @@
     <title>CPU Architecture Checker</title>
 </head>
 <body>
-
+<div id="UA">
+</div>
+<hr>
 <div id="UAmethod">
 </div>
 <hr>
@@ -25,7 +27,9 @@
             return 'Unknown';
         }
     }
-
+    document.getElementById("UA").innerHTML = `
+    UA : ${navigator.userAgent}<br>
+    platform : ${navigator.platform}<br>`;
     var cpuArchitecture = getCPUArchitecture();
     document.getElementById("UAmethod").innerHTML = `Using string matching on UA : <br> ${cpuArchitecture}`;
     navigator.userAgentData
@@ -33,6 +37,7 @@
             "architecture",
             "model",
             "platform",
+            "bitness",
             "platformVersion",
             "fullVersionList",
         ])
