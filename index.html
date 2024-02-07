@@ -37,9 +37,12 @@
             "architecture",
             "model",
             "platform",
+            "formFactor",
             "bitness",
             "platformVersion",
             "fullVersionList",
+            "uaFullVersion",
+            "wow64"
         ])
         .then((ua) => {
             document.getElementById("UApromisemethod").innerHTML = `Using userAgentData : <br> ${JSON.stringify(ua)}`;
