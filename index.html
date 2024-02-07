@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Architecture Checker</title>
+</head>
+<body>
+
+<div id="UAmethod">
+</div>
+<hr>
+<div id="UApromisemethod">
+</div>
+<script>
+    function getCPUArchitecture() {
+        var userAgent = navigator.userAgent;
+        if (userAgent.includes('ARM')) {
+            return 'ARM';
+        } else if (userAgent.includes('x86')) {
+            return 'x86';
+        } else if (userAgent.includes('64')) {
+            return '64-bit';
+        } else {
+            return 'Unknown';
+        }
+    }
+
+    var cpuArchitecture = getCPUArchitecture();
+    document.getElementById("UAmethod").innerHTML = `Using string matching on UA : <br> ${cpuArchitecture}`;
+    navigator.userAgentData
+        .getHighEntropyValues([
+            "architecture",
+            "model",
+            "platform",
+            "platformVersion",
+            "fullVersionList",
+        ])
+        .then((ua) => {
+            document.getElementById("UApromisemethod").innerHTML = `Using string matching on UA : <br> ${JSON.stringify(ua)}`;
+        });
+</script>
+</body>
+</html>
