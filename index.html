@@ -29,7 +29,9 @@
     }
     document.getElementById("UA").innerHTML = `
     UA : ${navigator.userAgent}<br>
-    platform : ${navigator.platform}<br>`;
+    platform : ${navigator.platform}<br>
+    resolution : ${ window.screen.width  + "x" + window.screen.height}<br>
+    device pixel ratio: ${window.devicePixelRatio}<br>`;
     var cpuArchitecture = getCPUArchitecture();
     document.getElementById("UAmethod").innerHTML = `Using string matching on UA : <br> ${cpuArchitecture}`;
     navigator.userAgentData
